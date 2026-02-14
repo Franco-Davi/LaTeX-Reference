@@ -1,0 +1,660 @@
+% ===== Preâmbulo =====
+% ----- Definição da classe de documento -----
+\documentclass[twoside]{article}
+
+% ----- Pacotes -----
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb, mathtools}
+\usepackage{amssymb}
+\usepackage[backend=biber]{biblatex}
+\usepackage{enumitem}
+\usepackage{pifont}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{colortbl}
+\usepackage{fancyhdr}
+\usepackage{background}
+\usepackage{pgfplots}
+\usepackage{mhchem}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{qrcode}
+\usepackage[
+colorlinks=true,
+linkcolor=blue,
+citecolor=red,
+urlcolor=magenta,
+pdfstartview=FitH,
+bookmarks=true,
+hidelinks
+]{hyperref}
+
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+\usepackage{lipsum}
+
+% ----- Configurações -----
+\DeclareMathOperator{\sen}{sen}
+
+\geometry{a4paper, margin=2.5cm}
+
+\lstset{
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{blue},
+	stringstyle=\color{orange},
+	commentstyle=\color{gray},
+	numbers=left,
+	numberstyle=\tiny,
+	stepnumber=1,
+	numbersep=5pt,
+	backgroundcolor=\color{gray!10},
+	frame=single,
+	captionpos=b
+}
+
+\pagestyle{fancy}
+\fancyhead[L]{Exemplos de \LaTeX{}}
+\fancyhead[C]{}
+\fancyhead[R]{\today}
+\fancyfoot[C]{\LaTeX{}}
+\fancyfoot[lo]{\thepage}
+\fancyfoot[ro]{UFPR}
+\fancyfoot[le]{UFPR}
+\fancyfoot[re]{\thepage}
+
+\backgroundsetup{
+	scale=8,
+	color=gray,
+	opacity=0.2,
+	angle=45,
+	position=current page.center,
+	contents={}
+}
+
+% ----- Bibliografia -----
+\bibliography{referencias.bib}
+
+% ----- Definições de Título -----
+\title{Exemplos de \LaTeX{}}
+\author{Franco, Davi}
+\date{\today}
+
+% ===== Corpo =====
+\begin{document}
+	
+% ----- Página de título -----
+	\begin{titlepage}
+		\backgroundsetup{contents={\LaTeX{} UFPR}}
+		\BgThispage
+		\begin{center}
+			\vspace*{2cm}
+			
+			{\Large \textbf{UNIVERSIDADE FEDERAL DO PARANÁ}}\\[0.5cm]
+			{\large Bacharelado em Física}\\[3cm]
+			
+			{\Huge \textbf{Exemplos de \LaTeX{}}}\\[2cm]
+			
+			{\Large Franco, Davi}\\[0.5cm]
+			\vfill
+			
+			{\large Curitiba – PR\\
+			\today}
+		\end{center}
+	\end{titlepage}
+	
+% ----- Contra-capa -----
+
+	\maketitle
+	\newpage
+	
+% ----- Sumário -----
+	\tableofcontents
+	\newpage
+	
+% ----- Ênfase e alinhamento -----
+	\section{Ênfase e alinhamento}
+	
+	\subsection{Ênfase e Alinhado à direita}
+	
+	\begin{flushright}
+		\emph{Ênfase, \lipsum[1]}
+	\end{flushright}
+	
+	\subsection{Itálico e Alinhado à esquerda}
+	
+	\begin{flushleft}
+		\textit{Itálico, \lipsum[2]}
+	\end{flushleft}
+
+	\subsection{Negrito e Centralizado}
+	
+	\begin{center}
+		\textbf{Negrito, \lipsum[3]}
+	\end{center}
+
+
+	\subsection{Sublinhado}
+
+	\underline{Sublinhado, este não obedece a margem.}
+
+	\subsection{Tamanho de fonte}
+	
+	\begin{center}
+		{\tiny Muito pequena} 
+
+		{\small Pequena} 
+
+		{\normalsize Normal} 
+
+		{\large Grande} 
+
+		{\huge Muito grande}
+
+		{\fontsize{25}{10}\selectfont Tamanho personalizado}
+	\end{center}
+	
+	\hrule
+	
+% ----- Seções e Subseções -----
+	\section{Seções e Subseções}
+	\lipsum[1]
+	
+	\subsection{subseção 1}
+	\lipsum[2]
+	
+	\subsection{subseção 2}
+	\lipsum[3-4]
+	
+	\subsection{subseção 3}
+	\lipsum[5]
+	
+	\subsubsection{subsubseção}
+	\lipsum[6]
+	
+% ----- Iteinização e Enumeração
+	\section{Iteinização e Enumeração}
+	
+	\subsection{Inteinização}
+	
+	\begin{itemize}
+		\item Primeiro item
+		\item Segundo item
+		\item Terceiro item
+		\begin{itemize}
+			\item Subitem A
+			\begin{itemize}
+				\item Subitem B
+				\begin{itemize}
+					\item Subitem C
+				\end{itemize}
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+	
+	\subsubsection{Marcador personalizado}
+	
+	\begin{itemize}[label=→]
+		\item Item com seta
+	\end{itemize}
+	
+	Ou
+	
+	\begin{itemize}[label=\ding{72}]
+		\item Item com estrela
+	\end{itemize}
+
+	\subsubsection{Marcadores diferentes}
+	
+		\begin{itemize}
+			\item[] Primeiro item
+			\item[La] Segundo item
+			\item[TeX´] Terceiro item
+		\end{itemize}
+	
+	\subsection{Enumeração}
+	
+	\begin{enumerate}
+	\item Primeiro item
+	\item Segundo item
+	\item Terceiro item
+		\begin{enumerate}
+			\item Subitem A
+			\begin{enumerate}
+				\item Subitem B
+				\begin{enumerate}
+					\item Subitem C
+				\end{enumerate}
+			\end{enumerate}
+		\end{enumerate}
+	\end{enumerate}
+
+	\subsection{Marcador personalizado}
+	
+	\begin{enumerate}[label=\alph*)]
+		\item Letra a)
+		\item Letra b)
+	\end{enumerate}
+
+	\begin{enumerate}[label=\roman*.]
+		\item um.
+		\item dois.
+	\end{enumerate}
+
+	\subsection{Começar a qualquer momento}
+	
+	\begin{enumerate}[start=5]
+		\item Começa do item 5
+	\end{enumerate}
+		
+	\subsection{Espaçamento personalizado}
+	
+	\begin{itemize}[leftmargin=2cm, itemsep=0.5cm]
+		\item Primeiro item
+		\item Segundo item
+		\item Terceiro item
+	\end{itemize}
+
+% ----- Multiplas colunas -----
+	\section{Múltiplas colunas}
+	
+	\begin{multicols}{2}
+		\lipsum[1-2]
+	\end{multicols}
+
+	\begin{multicols}{3}
+		\lipsum[3-4]
+	\end{multicols}
+
+% ----- Matemática -----
+	\section{Matemática}
+	
+	\subsection{Equação inline}
+	Curabitur dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec vehicula augue eu neque $\vec{F_{r}} = m \cdot \vec{a}$ p´ellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris ut leo $\vec{v} = \vec{v_0} + \vec{a} \cdot t$.
+	
+	\subsection{Equações em bloco}
+	
+	\subsubsection{Equação numerada}
+	
+	\begin{equation}
+		F(x) = \int f(x) dx
+		\label{eq:antideriv}
+	\end{equation}
+	
+	\subsubsection{Equação não numerada}
+	
+	\begin{equation*}
+		\pi = \int_{-1}^{1} \frac{dx}{\sqrt{1-x^2}}
+	\end{equation*}
+
+	\subsubsection{Equações alinhadas numeradas}
+
+	\begin{align}
+		\pi &= \int_{-1}^{1} \frac{dx}{\sqrt{1-x^2}}	\label{eq:pi} \\
+		F(x) &= \int f(x) dx
+		\label{eq:int}
+	\end{align}
+
+	\subsubsection{Equações alinhadas não numeradas}
+	
+	\begin{align*}
+		F(x) &= \int f(x) dx \\
+		\pi &= \int_{-1}^{1} \frac{dx}{\sqrt{1-x^2}}
+	\end{align*}
+
+	\subsubsection{Equação com condições}
+
+	\begin{equation*}
+	f(x) = 
+		\begin{cases}
+			x^2 & \text{se } x \geq 0 \\\\
+			-x & \text{se } x < 0
+		\end{cases}
+	\end{equation*}
+
+	\subsection{Matrizes}
+	
+	\subsubsection{Parenteses}
+	
+	\begin{equation*}
+		\begin{pmatrix}
+		1 & 2 \\
+		3 & 4
+		\end{pmatrix}
+	\end{equation*}
+	
+	\subsubsection{Colchetes}
+	
+	\begin{equation*}
+		\begin{bmatrix}
+			1 & 2 \\
+			3 & 4 \\
+			5 & 6
+		\end{bmatrix}
+	\end{equation*}
+	
+	\subsubsection{Barras}
+	
+	\begin{equation*}
+		\begin{vmatrix}
+			1 & 2 & 3 \\
+			4 & 5 & 6
+		\end{vmatrix}
+	\end{equation*}
+	
+% ----- Fórmulas quimicas -----
+
+	\section{Fórmulas Químicas}
+
+	\subsection{Inline}
+
+	Reação química: \ce{H2 + O2 -> H2O}
+
+	\subsection{Em bloco}
+
+	Molécula de cafeína:
+	\begin{equation}
+	\ce{C8H10N4O2}
+	\end{equation}
+	
+% ----- Figuras -----
+	\section{Figuras e posição}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.4\textwidth]{example-image-a}
+		\caption{Figura na posição 'h', diz para o \LaTeX{} colocar AQUI (here)}
+		\label{fig:imagem}
+	\end{figure}
+
+	O parâmetro \verb|[width=0.4\textwidth]| faz a largura máxima ser 40\% da largura do texto.
+
+	\begin{figure}[!t]
+		\centering
+		\includegraphics[clip, trim=2.8cm 0cm 2.8cm 0cm]{example-image-b}
+		\caption{Figura na posição 'b', diz para o \LaTeX{} colocar abaixo na página (bottom)}
+	\end{figure}
+
+	O parâmetro \verb|[clip, trim=2.8cm 0cm 2.8cm 0cm]| corta a imagem 2.8cm da esquerda, 0cm de baixo, 2.8cm da direita e 0cm de cima.
+
+	\begin{figure}[!b]
+		\centering
+		\includegraphics[height=0.4\textwidth, angle=-90]{example-image-c}
+		\caption{Figura na posição 't', diz para o \LaTeX{}] colocar acima na página (top)}
+	\end{figure}
+	
+	O parâmetro \verb|[angle=-90]| gira a imagem 90º no sentido horário.
+	
+	\begin{figure}[!p]
+		\centering
+		\includegraphics[angle=90, width=\textwidth]{example-image}
+		\caption{Figura na posição 'p', diz ao \LaTeX{} colocar em uma página separada apenas de imagens}
+	\end{figure}
+
+	O parâmetro \verb|[angle=90, width=\textwidth]|, aliado com o posicionamento 'p', faz com que a imagem ocupe uma página inteira sozinha e esteja virada no sentido da pagina.
+
+	\lipsum[1-2]
+
+	\subsection{Mais de uma imagem por figura}
+	
+	\begin{figure}[h]
+		\centering
+		\begin{subfigure}[b]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{example-image-a}
+			\caption{Figura a}
+			\label{fig:1a}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.45\textwidth}
+			\includegraphics[width=\textwidth]{example-image-b}
+			\caption{Figura b}
+			\label{fig:1b}
+		\end{subfigure}
+		\caption{Comparação entre duas figuras}
+		\label{fig:comparacao}
+	\end{figure}
+
+	As posições podem ser usadas para praticamente qualquer ambiente \LaTeX{}, sejam figura, tabelas, gráficos, etc.
+
+	\lipsum[1-2]
+
+% ----- Desenhos e diagramas -----
+
+	\section{Desenhos e diagramas}
+
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{scope}[fill opacity=0.5]
+				\fill[blue] (0,0) circle (2);
+				\fill[red]  (2,0) circle (2);
+			\end{scope}
+			
+			\draw (0,0) circle (2);
+			\draw (2,0) circle (2);
+			\node at (-0.0,1.5) {$A$};
+			\node at (2.0,1.5)  {$B$};
+			\node at (1,0)      {$A \cap B$};
+		\end{tikzpicture}
+	\end{center}
+
+	Ou ainda:
+
+	\begin{center}
+		\begin{tikzpicture}[scale=2]
+			
+			\draw[thick] (-1,0) -- (1,0);
+			\filldraw[black] (0,0) circle (0.02); 
+			
+			\draw[thick] (0,0) -- ({2*sin(30)}, {-2*cos(30)});
+			
+			\filldraw[gray!30] ({2*sin(30)}, {-2*cos(30)}) circle (0.15);
+			
+			\draw[dashed] (0,0) -- (0,-2.2);
+			
+			\draw[->] (0.5,0) arc (0:-30:0.5);
+			\node at (0.3,0.15) {$\theta$};
+			
+			\draw[->, red, thick] ({2*sin(30)}, {-2*cos(30)}) -- ++(0,-1) node[right] {$\vec{P}$};
+			\draw[->, blue, thick] ({2*sin(30)}, {-2*cos(30)}) -- (0,0) node[midway, below left] {$\vec{T}$};
+			
+			\node at ({2*sin(30)}, {-2*cos(30) - 0.3}) {m};
+			
+		\end{tikzpicture}
+	\end{center}
+
+% ----- Circuitos elétricos -----
+
+	\section{Circuitos Elétricos}
+
+	\begin{center}
+		\begin{circuitikz}
+			\draw (0,0) to[battery, l=12V] (0,2)
+			to[R, l=1k$\Omega$] (2,2)
+			to[bulb] (2,0)
+			-- (0,0);
+		\end{circuitikz}
+	\end{center}
+
+% ----- Tabelas -----
+	\section{Tabelas}
+	
+	\begin{table}[h!]
+		\caption{Exemplo completo de tabela com recursos do LaTeX}
+		\label{tab:tabela}
+		\renewcommand{\arraystretch}{1.4}
+	
+		\begin{tabularx}{\textwidth}{||l|c|r|X||}
+			\hline
+			\multicolumn{4}{|c|}{\textbf{Tabela de Demonstração}} \\
+			\hline
+			\textbf{Nome} & \textbf{Idade} & \textbf{Nota} & \textbf{Observações (coluna X)} \\
+			\hline
+			Ana & 21 & \cellcolor{ForestGreen} 9.5 & Excelente desempenho ao longo do semestre. Sempre participativa. \\
+			\hline
+			\multirow{2}{*}{João} & \multirow{2}{*}{22} & 7.0 & Teve dificuldades iniciais, mas apresentou evolução. \\
+			& & 8.5 & Nota da recuperação. \\
+			\hline
+			Maria & 20 & \cellcolor{ForestGreen} 10 & Aluna destaque, liderou trabalhos em grupo. \\
+			\hline
+			Carlos & 23 & \cellcolor{RedOrange} 6.5 & Necessita melhorar participação e entrega de atividades. \\
+			\hline
+			\multicolumn{4}{|c|}{\textit{Legenda:} Nota máxima = 10.0} \\
+			\hline
+		\end{tabularx}
+	\end{table}
+	
+	\lipsum[3]
+	
+% ----- Gráficos -----
+	\section{Gráficos}
+	
+	\subsection{Gráficos de função}
+	
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+				axis lines=middle,
+				xlabel={$x$},
+				ylabel={$f(x)$},
+				title={Gráfico de $f(x) = x^2$},
+				grid=both
+				]
+				\addplot[domain=-3:3, samples=100, thick, blue] {x^2};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+	
+	\subsection{Gráficos de dados}
+	
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+				xlabel={Tempo (s)},
+				ylabel={Velocidade (m/s)},
+				title={Dados experimentais},
+				grid=major,
+				only marks
+				]
+				\addplot[mark=*, red] coordinates {
+					(0,0) (1,1.5) (2,3.8) (3,5.9) (4,7.1) (5,10)
+				};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+	
+	\subsubsection{Gráfico com dados em arquivo csv}
+	
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+				xlabel={Tempo (s)},
+				ylabel={Velocidade (m/s)},
+				title={Importando dados de um .csv},
+				grid=major
+				]
+				\addplot table[
+				col sep=comma,
+				x=tempo,
+				y=velocidade
+				] {dados.csv};
+			\end{axis}
+		\end{tikzpicture}
+	\end{center}
+	
+% ----- Blocos de código -----
+
+	\section{Códigos}
+	
+	\subsection{Inline}
+	
+	Para códigos citados durante um texto, pode-se usar o \verb|p = input("está dia?")|
+	
+	\subsection{Em bloco}
+	
+	\begin{lstlisting}[language=Python]
+p = input("esta dia?")
+if p == sim:
+	print("hallo world!")
+else:
+	print("vai dormir")
+	\end{lstlisting}
+	
+% ----- Qr-codes -----
+	
+	\section{Qr-codes}
+	
+	\begin{center}
+		\qrcode{https://youtu.be/dQw4w9WgXcQ?si=YOYCOUYIoobepFxJ}
+	\end{center}
+	
+% ----- Bibliografia e Citações -----
+
+	\section{Bibliografia e Citações}
+
+	Citações a referências dentro do próprio documento podem ser feitas referenciando a imagem \ref{fig:comparacao}, a tabela \ref{tab:tabela} ou para a equação \eqref{eq:pi}.
+
+	Para links externos pode-se usar um link como \href{https://youtu.be/dQw4w9WgXcQ?si=YOYCOUYIoobepFxJ}{Aqui}.
+	
+	Ou simplesmente a url como: \url{https://youtu.be/dQw4w9WgXcQ?si=YOYCOUYIoobepFxJ}, caso queira que a url apareça. (url's não obedecem a margem)
+	
+	Para citações bibliográficas pode-se usar esta, no fim da frase. \cite{latex}.
+	
+	Ou pode-se citar \textcite{einstein} no meio do texto.
+	
+	Ou ainda citar apenas o autor \citeauthor{einstein} ou o ano \citeyear{einstein}.
+	
+	\printbibliography
+		
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
